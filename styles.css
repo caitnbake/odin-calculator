@@ -38,11 +38,14 @@ body {
     padding: 0;
     margin-right: 5px;
     margin-bottom: 15px;
-    font-size: 35px;
     width: 100%;
+    min-height: 50px;
+}
+
+.display {
+    font-size: 35px;
     letter-spacing: 2px;
     font-weight: 300;
-    min-height: 50px;
 }
 
 button {
@@ -99,4 +102,9 @@ button:hover {
     display: flex;
     flex-wrap: nowrap;
     gap: 10px;
+}
+
+.running {
+    font-size: 15px;
+    color: #333;
 }
