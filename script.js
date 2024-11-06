@@ -1,6 +1,6 @@
 function runCalculation(num1, num2, opp) {
-    if (num1 === "ERROR" || num1 === nothing || num2 === nothing || opp === nothing) {
-        answer = num1 || num2;
+    if (num1 === nothing || num2 === nothing || opp === nothing) {
+        answer = num1 || num2 || "";
     } else {
         switch (opp) {
             case "+" :
@@ -66,10 +66,12 @@ let answer = nothing;
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
 const decimal = document.querySelector("#decimal");
+const backspaceBtn = document.querySelector("#back");
 let display = document.querySelector(".display");
 
 clear.addEventListener("click", function() {clearEverything()});
 equals.addEventListener("click", function() {runCalculation(firstNumber, secondNumber, operator)});
+backspaceBtn.addEventListener("click", function() {backspace()});
     
 function printToScreen(number) {
     if (display.innerText === answer || display.innerText === answer.toString().substring(0, 9)) {
@@ -89,6 +91,11 @@ function printToScreen(number) {
     }
 }
 
+function backspace() {
+    display.innerText = display.innerText.slice(0, -1);
+    printToScreen("");
+}
+
 function clearEverything() {
     display.innerText = "";
     firstNumber = nothing;
@@ -99,7 +106,7 @@ function clearEverything() {
 
 function setOperator(opp) {
     display.innerText = "";
-    if (firstNumber !== nothing && operator !== nothing){
+    if (firstNumber !== nothing && secondNumber!== nothing && operator !== nothing){
         runCalculation(firstNumber, secondNumber, operator);
     }
     operator = opp;
