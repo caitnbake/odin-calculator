@@ -15,44 +15,48 @@ function divide(a, b) {
 }
 
 function runCalculation(num1, num2, opp) {
-    switch (opp) {
-        case "plus" :
-            answer = add(num1, num2);
-            break;
-        case "minus" :
-            answer = subtract(num1, num2);
-            break;
-        case "multiply" :
-            answer = multiply(num1, num2);
-            break
-        case "divide" :
-            if (num2 === 0) {
-                answer = "NOPE";
-            } else {
-                answer = divide(num1, num2);
-            }
-            break;
-        default :
-            answer = firstNumber;  
+    if (num2 == nothing || opp == nothing) {
+        answer = nothing; 
+    } else {
+        switch (opp) {
+            case "plus" :
+                answer = add(num1, num2);
+                break;
+            case "minus" :
+                answer = subtract(num1, num2);
+                break;
+            case "multiply" :
+                answer = multiply(num1, num2);
+                break
+            case "divide" :
+                if (num2 === 0) {
+                    answer = "NOPE";
+                } else {
+                    answer = divide(num1, num2);
+                }
+                break;
+        }
     }
     displayCalculation(answer);
 }
 
 function displayCalculation(answer) {
+    console.log(firstNumber, secondNumber);
     if (answer.toString().length > 9) {
         display.innerText = answer.toPrecision(8);
-    } else { 
+    } else {
         display.innerText = answer;
     }
     firstNumber = answer;
-    secondNumber = 9999999999;
-    operator = "";
+    secondNumber = nothing;
+    operator = nothing;
 }
 
-let operator = "";
-let firstNumber = 9999999999;
-let secondNumber = 9999999999;
-let answer = 9999999999;
+const nothing = "";
+let operator = nothing;
+let firstNumber = nothing;
+let secondNumber = nothing;
+let answer = nothing;
 const one = document.querySelector("#one");
 const two = document.querySelector("#two");
 const three = document.querySelector("#three");
@@ -99,7 +103,7 @@ function printToScreen(number) {
 
     display.innerText += number;
     
-    if (firstNumber === 9999999999) {
+    if (firstNumber == nothing) {
         firstNumber = +display.innerText;
     } else {
         secondNumber = +display.innerText;
@@ -108,15 +112,15 @@ function printToScreen(number) {
 
 function clearEverything() {
     display.innerText = "";
-    firstNumber = 9999999999;
-    secondNumber = 9999999999;
-    operator = "";
-    answer = 9999999999;
+    firstNumber = nothing;
+    secondNumber = nothing;
+    operator = nothing;
+    answer = nothing;
 }
 
 function setOperator(opp) {
     display.innerText = "";
-    if (operator !== "" && secondNumber !== NaN) {
+    if (secondNumber !== nothing) {
         runCalculation(firstNumber, secondNumber, opp);
     }
     operator = opp;
