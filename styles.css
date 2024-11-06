@@ -61,40 +61,49 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, #back:hover {
     background: var(--medgrey);
     color: #fff;
+    border: 1px solid var(--medgrey);
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
 }
 
-.operator {
-    border: 1px solid var(--yellow);
-    color: var(--yellow);
+.clear:hover {
+    background: rgb(166, 0, 0);
+    border: 1px solid rgb(166, 0, 0);
+    color: white;
 }
 
-.operator:hover {
+.operator {
     background: var(--yellow);
+    border: 1px solid var(--yellow);
+    color: white;
 }
 
 .equal {
     border: 1px solid var(--green);
-    color: var(--green);
+    color: white;
+    background: var(--green);
     width: 230px;
 }
 
-.equal:hover {
-    background: var(--green);
-}
-
 .clear {
-    border: 1px solid var(--orange);
-    width: 110px;
-    color: var(--orange);
+    border: 1px solid var(--medgrey);
+    background-color: var(--medgrey);
+    color: white;
+    font-size: 17px;
 }
 
-.clear:hover {
-    background: var(--orange);
+#zero, .clear, #back {
+    width: 110px;
+}
+
+#back {
+    border: 1px solid var(--orange);
+    background-color: var(--orange);
+    color: white;
+    font-size: 17px;
 }
 
 .row {
@@ -102,9 +111,4 @@ button:hover {
     display: flex;
     flex-wrap: nowrap;
     gap: 10px;
-}
-
-.running {
-    font-size: 15px;
-    color: #333;
 }
