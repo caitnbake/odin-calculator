@@ -40,6 +40,11 @@ const digits = document.querySelectorAll(".digit");
 for (let digit of digits) {
     digit.addEventListener("click", function() {
         let number = digit.innerText;
+        if (display.innerText.includes(".")) {
+            decimal.disabled = true;
+        } else {
+            decimal.disabled = false;
+        };
         printToScreen(number);
     })
 }
@@ -60,6 +65,7 @@ let answer = nothing;
 
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
+const decimal = document.querySelector("#decimal");
 let display = document.querySelector(".display");
 
 clear.addEventListener("click", function() {clearEverything()});
