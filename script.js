@@ -15,8 +15,8 @@ function divide(a, b) {
 }
 
 function runCalculation(num1, num2, opp) {
-    if (num2 == nothing || opp == nothing) {
-        answer = nothing; 
+    if (num1 == "ERROR" || num2 == nothing || opp == nothing) {
+        answer = "ERROR"; 
     } else {
         switch (opp) {
             case "plus" :
@@ -41,9 +41,9 @@ function runCalculation(num1, num2, opp) {
 }
 
 function displayCalculation(answer) {
-    console.log(firstNumber, secondNumber);
+    console.log(firstNumber, secondNumber, operator);
     if (answer.toString().length > 9) {
-        display.innerText = answer.toPrecision(8);
+        display.innerText = answer.toString().substring(0, 9);
     } else {
         display.innerText = answer;
     }
@@ -93,7 +93,7 @@ divisor.addEventListener("click", function() {setOperator("divide")});
 equals.addEventListener("click", function() {runCalculation(firstNumber, secondNumber, operator)});
     
 function printToScreen(number) {
-    if (display.innerText == answer || display.innerText == answer.toPrecision(8)) {
+    if (display.innerText == answer || display.innerText == answer.toString().substring(0, 9)) {
         display.innerText = "";
     }
 
@@ -103,7 +103,7 @@ function printToScreen(number) {
 
     display.innerText += number;
     
-    if (firstNumber == nothing) {
+    if (operator == nothing || firstNumber == "ERROR") {
         firstNumber = +display.innerText;
     } else {
         secondNumber = +display.innerText;
@@ -120,7 +120,7 @@ function clearEverything() {
 
 function setOperator(opp) {
     display.innerText = "";
-    if (secondNumber !== nothing) {
+    if (secondNumber !== nothing && firstNumber !== "ERROR") {
         runCalculation(firstNumber, secondNumber, opp);
     }
     operator = opp;
