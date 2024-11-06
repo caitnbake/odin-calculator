@@ -3,7 +3,7 @@
 }
 
 :root {
-    --medgrey: #5f5f5f;
+    --medgrey: #414141;
     --orange: #d99102;
     --yellow: #bb9f01;
     --green: #9fa701;
@@ -61,18 +61,10 @@ button {
     cursor: pointer;
 }
 
-button:hover, #back:hover {
-    background: var(--medgrey);
-    color: #fff;
-    border: 1px solid var(--medgrey);
+button:hover, #back:hover, .clear:hover {
+    transform: scale(1.05) rotate(2deg);
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
-}
-
-.clear:hover {
-    background: rgb(166, 0, 0);
-    border: 1px solid rgb(166, 0, 0);
-    color: white;
 }
 
 .operator {
@@ -93,6 +85,7 @@ button:hover, #back:hover {
     background-color: var(--medgrey);
     color: white;
     font-size: 17px;
+    letter-spacing: 2px;
 }
 
 #zero, .clear, #back {
