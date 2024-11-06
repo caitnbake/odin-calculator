@@ -15,8 +15,8 @@ function divide(a, b) {
 }
 
 function runCalculation(num1, num2, opp) {
-    if (num1 == "ERROR" || num2 == nothing || opp == nothing) {
-        answer = "ERROR"; 
+    if (num1 == "ERROR" || num1 == nothing || num2 == nothing || opp == nothing) {
+        answer = num1 || num2;
     } else {
         switch (opp) {
             case "plus" :
