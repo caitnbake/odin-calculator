@@ -20,11 +20,6 @@ const digits = document.querySelectorAll(".digit");
 for (let digit of digits) {
     digit.addEventListener("click", function() {
         let number = digit.innerText;
-        if (display.innerText.includes(".")) {
-            decimal.disabled = true;
-        } else {
-            decimal.disabled = false;
-        };
         printToScreen(number);
     })
 }
@@ -113,26 +108,24 @@ function runCalculation(num1, num2, opp) {
 }
 
 function displayCalculation(answer) {
-    if (answer.toString().length > 9) {
-        display.innerText = answer.toString().substring(0, 9);
-    } else {
+    
         display.innerText = answer;
-    }
     first = answer.toString().split("") || [];
     second = [];
     operator = nothing;
 }
     
 function printToScreen(number) {
+    if (number === "." && ((first.includes(".") && operator === nothing) || second.includes("."))) {
+       return;
+    }
+
     if (Number.isInteger(+number) || number === "."){
         if (operator === nothing) {
             first.push(number);
         } else {
             second.push(number);
         }
-    }
-    if (display.innerText.length === 9) {
-        return;
     }
     display.innerText += number;
 }
