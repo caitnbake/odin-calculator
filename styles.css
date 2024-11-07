@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -17,20 +19,20 @@ body {
 }
 
 .calculator {
+    width: 230px;
+    max-width: 230px;
     margin: 0 auto;
-    width: 295px;
-    padding: 30px;
-    padding-top: 80px;
+    padding-top: 50px;
     padding-bottom: 15px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
-    border-radius: 15px;
 }
 
 .screen, .buttons {
     color: var(--medgrey);
+    margin: 0 auto;
 }
 
 .screen p {
@@ -38,14 +40,13 @@ body {
     padding: 0;
     margin-right: 5px;
     margin-bottom: 15px;
-    width: 100%;
     min-height: 50px;
-}
-
-.display {
     font-size: 35px;
     letter-spacing: 2px;
     font-weight: 300;
+    width: 230px;
+    max-width: 230px;
+    text-align: right;
 }
 
 button {
@@ -61,7 +62,7 @@ button {
     cursor: pointer;
 }
 
-button:hover, #back:hover, .clear:hover {
+button:hover, .back:hover, .clear:hover {
     transform: scale(1.05) rotate(2deg);
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
@@ -88,11 +89,11 @@ button:hover, #back:hover, .clear:hover {
     letter-spacing: 2px;
 }
 
-#zero, .clear, #back {
+.zero, .clear, .back {
     width: 110px;
 }
 
-#back {
+.back {
     border: 1px solid var(--orange);
     background-color: var(--orange);
     color: white;
@@ -104,4 +105,11 @@ button:hover, #back:hover, .clear:hover {
     display: flex;
     flex-wrap: nowrap;
     gap: 10px;
+}
+
+.running {
+    font-size: 15px;
+    width: 230px;
+    max-width: 230px;
+    text-overflow: wrap;
 }
